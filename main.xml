@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<unit name="main">
+
+	<type name="main" scope="global">
+		<function name="title">
+			<get value="ООО &quot;СВАРОПТТОРГ&quot;"/>
+		</function>
+	</type>
+	
+	<form name="main">
+		<column width="30"/>
+		<column width="4"/>
+		<column width="4"/>
+		<column width="50"/>
+	</form>
+	
+	<format name="ДеньМесяца" DF="dd.MMM"/>
+	<format name="Дата" DLF="D"/>
+	
+</unit>
