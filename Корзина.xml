@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<unit name="Корзина">
+	
+	<type name="Корзина" title="Корзина" scope="global">
+		<field.string name="Пользователь" width="10"/>
+		<field.array name="Строки" type="Строка"/>
+		
+		<function name="title">
+		</function>
+
+		<state name="constructor">
+		</state>
+		
+		<index name="Корзина">
+		</index>
+	</type>
+
+	<type name="Строка">
+		<field.ref name="Номенклатура" type="Номенклатура" title="Номенклатура"/>
+		<field.number name="Количество" title="Количество"/>
+	</type>
+
+	<form name="Корзина">
+		<column width="2"/>
+		<column width="50"/>
+		<column width="12"/>
+
+		<row/>
+		<row indent="1" cols="2">
+			<button name="ОформитьЗаказ" text="Оформить заказ"/>
+		</row>
+		
+		<row/>
+		<row indent="1" text="Дата"/>
+
+		<bar/>
+		<bar bind="Строки" indent="1" cols="6">
+			<button name="Строки.remove" text="Удалить"/>
+			<label text=" "/>
+		</bar>
+		<bar/>
+		
+		<row/>
+		<cell text="Номенклатура" align="center" border="1" color="009646"/>
+		<cell text="Количество" align="center" border="1" color="009646"/>
+		<nest field="Строки"/>
+	</form>
+
+	<form name="Корзина-Строка">
+		<!--<line/>-->
+		<row/>
+		<cell bind="Номенклатура" border="1" wrap="1"/>
+		<cell bind="Количество" border="1">
+			<edit grow="1"/>
+			<tool type="calculator"/>
+		</cell>
+	</form>
+</unit>

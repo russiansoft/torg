@@ -9,10 +9,26 @@
 	</type>
 	
 	<form name="main">
-		<column width="30"/>
+		<column width="2"/>
 		<column width="4"/>
-		<column width="4"/>
-		<column width="50"/>
+		<column width="60"/>
+		
+		<row/>
+		<row indent="2">
+			<link reference="Каталог" type="list" text="Каталог товаров"/>
+		</row>
+		<row/>
+		<row indent="2">
+			<link reference="Номенклатура" type="list" text="Поиск товаров ➡"/>
+		</row>
+		<row/>
+		<row indent="2">
+			<link reference="Корзина" type="list" text="Корзина"/>
+		</row>
+		<row/>
+		<row indent="2">
+			<link reference="Заказ" type="list" text="Мои заказы"/>
+		</row>
 	</form>
 	
 	<format name="ДеньМесяца" DF="dd.MMM"/>

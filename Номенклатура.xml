@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<unit name="Номенклатура">
+	
+	<type name="Номенклатура" title="Номенклатура" scope="global">
+		<field.string name="Код" width="10"/>
+		<field.string name="Наименование" width="30"/>
+		<field.number name="Цена" precision="2" width="10" align="right"/>
+		<field.number name="Остаток" precision="3" width="10" align="right"/>
+		<index name="Номенклатура">
+			<key field="Наименование"/>
+		</index>
+		
+		<function name="title">
+		</function>
+		
+	</type>
+	
+	<form name="Номенклатура">
+		<column width="2"/>
+		<column width="20"/>
+		<column width="30"/>
+		
+		<row/>
+		<row indent="1" text="Наименование"/>
+		<cell bind="Наименование" bold="1" wrap="1"/>
+	
+		<!--<row/>
+		<row indent="1" text="Код"/>
+		<cell bind="Код" outline="2"/>-->
+
+		<row/>
+		<row indent="1" text="Цена"/>
+		<cell bind="Цена"/>
+
+		<!--<row/>
+		<row indent="1" text="В наличии"/>
+		<cell bind="Остаток" outline="2"/>-->
+
+		<row/>
+		<row indent="2">
+			<button name="ВКорзину" text="Добавить в корзину"/>
+		</row>
+	</form>
+	
+</unit>

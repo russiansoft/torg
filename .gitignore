@@ -1,8 +1,10 @@
 */
 *.lnk
 *.zip
+*.log
 composer.*
 favicon.*
+debug.*
 config.xml
 database.xml
 datafile.xml

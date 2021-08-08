@@ -2,4 +2,7 @@
 
 <package name="torg" version="">
 	<include unit="main"/>
+	<include unit="Номенклатура"/>
+	<include unit="Корзина"/>
+	<include unit="Заказ"/>
 </package>
