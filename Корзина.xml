@@ -2,15 +2,46 @@
 
 <unit name="Корзина">
 	
-	<type name="Корзина" title="Корзина" scope="global">
-		<field.string name="Пользователь" width="10"/>
+	<type name="Покупка" scope="global">
+		<field.ref name="Номенклатура" type="Номенклатура" title="Номенклатура" width="30"/>
+		<field.string name="Пользователь" title="Пользователь" width="20"/>
+		
+		<constructor>
+			<function name="Пользователь">
+				<account/>
+			</function>
+		</constructor>
+		
+		<index name="Покупка">
+			<key field="Пользователь"/>
+			<key field="Номенклатура"/>
+		</index>
+	</type>
+	
+	<type name="Корзина" title="Корзина" scope="global" report="1">
+		<field.string name="Пользователь"/>
+		<field.number name="Сумма" precision="2"/>
 		<field.array name="Строки" type="Строка"/>
+
+		<constructor>
+			<function name="Пользователь">
+				<account/>
+			</function>
+			
+			<query name="Строки">
+				<select from="Покупка">
+					<filter by="Пользователь" field="Пользователь"/>
+					<get field="Номенклатура" as="Номенклатура"/>
+				</select>
+			</query>
+		</constructor>
 		
 		<function name="title">
 		</function>
 
-		<state name="constructor">
-		</state>
+		<function name="Сумма">
+			<get value="5"/>
+		</function>
 		
 		<index name="Корзина">
 		</index>
@@ -19,41 +50,97 @@
 	<type name="Строка">
 		<field.ref name="Номенклатура" type="Номенклатура" title="Номенклатура"/>
 		<field.number name="Количество" title="Количество"/>
+		<field.number name="НовоеКоличество"/>
+		
+		<constructor>
+			<function name="Количество">
+				<get value="1"/>
+			</function>
+		</constructor>
+		
+		<state name="Минус">
+			<query>
+				<update into="Покупка">
+					
+				</update>
+			</query>
+			<function name="НовоеКоличество">
+				<if>
+					<greater>
+						<get field="Количество"/>
+						<get value="0"/>
+					</greater>
+					<dec>
+						<get field="Количество"/>
+					</dec>
+					<get field="Количество"/>
+				</if>
+			</function>
+			<function name="УстановкаНовогоКоличества">
+				<true/>
+			</function>
+		</state>
+		
+		<state name="Плюс">
+			<query>
+				<update into="Покупка">
+					
+				</update>
+			</query>
+			<function name="НовоеКоличество">
+				<inc>
+					<get field="Количество"/>
+				</inc>
+			</function>
+			<function name="УстановкаНовогоКоличества">
+				<true/>
+			</function>
+		</state>
+		
+		<state name="УстановкаНовогоКоличества">
+			<function name="Количество">
+				<get field="НовоеКоличество"/>
+			</function>
+		</state>
 	</type>
 
 	<form name="Корзина">
 		<column width="2"/>
 		<column width="50"/>
-		<column width="12"/>
+		<column width="16"/>
+		<column width="20"/>
 
 		<row/>
 		<row indent="1" cols="2">
 			<button name="ОформитьЗаказ" text="Оформить заказ"/>
 		</row>
-		
-		<row/>
-		<row indent="1" text="Дата"/>
 
-		<bar/>
-		<bar bind="Строки" indent="1" cols="6">
-			<button name="Строки.remove" text="Удалить"/>
-			<label text=" "/>
-		</bar>
-		<bar/>
-		
 		<row/>
-		<cell text="Номенклатура" align="center" border="1" color="009646"/>
-		<cell text="Количество" align="center" border="1" color="009646"/>
+		<row indent="1" text="Сумма: 0 руб." bold="1"/>
+
+		<row/>
+		<row/>
+		<cell text="Номенклатура" align="center" color="009646"/>
+		<cell text="Количество" align="center" color="009646"/>
 		<nest field="Строки"/>
 	</form>
 
 	<form name="Корзина-Строка">
 		<!--<line/>-->
 		<row/>
-		<cell bind="Номенклатура" border="1" wrap="1"/>
-		<cell bind="Количество" border="1">
-			<edit grow="1"/>
-			<tool type="calculator"/>
+		<row/>
+		<cell bind="Номенклатура" wrap="1"/>
+		<cell bind="Количество">
+			<button name="Минус" text="-" title="Уменьшить"/>
+			<label text="  " grow="1"/>
+			<edit/>
+			<!--<tool type="calculator"/>-->
+			<label text=" " grow="1"/>
+			<button name="Плюс" text="+" title="Увеличить"/>
 		</cell>
+		<!--<cell>
+			<label text="    "/>
+			<button name="Строка.Удалить" text="🗑" title="Удалить"/>
+		</cell>-->
 	</form>
 </unit>

@@ -3,6 +3,12 @@
 <unit name="main">
 
 	<type name="main" scope="global">
+
+		<field.number name="Сумма" precision="2"/>
+
+		<function name="Сумма">
+		</function>
+
 		<function name="title">
 			<get value="ООО &quot;СВАРОПТТОРГ&quot;"/>
 		</function>
@@ -10,25 +16,46 @@
 	
 	<form name="main">
 		<column width="2"/>
-		<column width="4"/>
+		<column width="6"/>
 		<column width="60"/>
+
+		<row/>
+		<row/>
+		<cell text="📚" size="32"/>
+		<cell>
+			<link reference="Номенклатура" type="search" text="Каталог товаров"/>
+		</cell>
 		
 		<row/>
-		<row indent="2">
-			<link reference="Каталог" type="list" text="Каталог товаров"/>
-		</row>
 		<row/>
+		<cell text="🔍" size="32"/>
+		<cell>
+			<link reference="Номенклатура" type="search" text="Найти наименование"/>
+		</cell>
+		
+		<!--<row/>
 		<row indent="2">
-			<link reference="Номенклатура" type="list" text="Поиск товаров ➡"/>
-		</row>
+			<link reference="Покупка" type="list" text="Покупки"/>
+		</row>-->
+		
 		<row/>
-		<row indent="2">
-			<link reference="Корзина" type="list" text="Корзина"/>
-		</row>
 		<row/>
-		<row indent="2">
+		<cell text="🛒" size="32"/>
+		<cell>
+			<link reference="Корзина" type="report" text="Корзина"/>
+		</cell>
+		
+		<row/>
+		<row/>
+		<cell text="🎁" size="32"/>
+		<cell>
 			<link reference="Заказ" type="list" text="Мои заказы"/>
-		</row>
+		</cell>
+		
+		<!--<row/>
+		<row indent="2">
+			<link reference="account" type="list" text="Пользователи"/>
+		</row>-->
 	</form>
 	
 	<format name="ДеньМесяца" DF="dd.MMM"/>
