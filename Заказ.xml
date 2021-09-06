@@ -6,7 +6,7 @@
 		<field.string name="Пользователь" title="Пользователь" width="20"/>
 		<field.date name="Дата" width="9" indexing="sort"/>
 		<field.array name="Строки" type="Строка"/>
-		<field.number name="Сумма" precision="2"/>
+		<field.number name="Сумма" precision="2" width="15" align="right"/>
 		<field.boolean name="ЗаказОтправлен"/>
 		
 		<function name="title">
