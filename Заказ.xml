@@ -3,17 +3,65 @@
 <unit name="Заказ">
 	
 	<type name="Заказ" title="Заказ" scope="global">
+		<field.string name="Пользователь" title="Пользователь" width="20"/>
 		<field.date name="Дата" width="9" indexing="sort"/>
 		<field.array name="Строки" type="Строка"/>
+		<field.number name="Сумма" precision="2"/>
+		<field.boolean name="ЗаказОтправлен"/>
 		
 		<function name="title">
+			<join>
+				<get value=" от "/>
+				<format>
+					<get field="Дата"/>
+					<get value="Дата"/>
+				</format>
+			</join>
 		</function>
-
+		
+		<function name="Сумма">
+			<sum>
+				<get value="Строки"/>
+				<get value="Сумма"/>
+			</sum>
+		</function>
+		
 		<state name="constructor">
+			<function name="Пользователь">
+				<account/>
+			</function>
+			
 			<function name="Дата">
 				<today/>
 			</function>
+
+			<query name="Строки">
+				<select from="Корзина-Строка">
+					<filter by="owner" field="parent"/>
+					<order by="Номенклатура"/>
+					<get field="Номенклатура" as="Номенклатура"/>
+					<get field="Количество" as="Количество"/>
+				</select>
+			</query>
 		</state>
+
+		<state name="Отправить">
+			<function name="ЗаказОтправлен">
+				<true/>
+			</function>
+			
+			<query>
+				<delete from="Покупка">
+					<filter by="Пользователь" field="Пользователь"/>
+				</delete>
+			</query>
+		</state>
+		
+		<state name="Отправлен" save="1"/>
+		
+		<function name="Отправлен">
+			<get field="ЗаказОтправлен"/>
+		</function>
 		
 		<index name="Заказ">
 			<key field="Дата"/>
@@ -23,47 +71,78 @@
 	<type name="Строка">
 		<field.ref name="Номенклатура" type="Номенклатура" title="Номенклатура"/>
 		<field.number name="Количество" title="Количество"/>
+		<field.number name="Цена" precision="2"/>
+		<field.number name="Сумма" precision="2"/>
+		
+		<function name="Цена">
+			<get field="Номенклатура.Цена"/>
+		</function>
+		
+		<function name="Сумма">
+			<mul>
+				<get field="Количество"/>
+				<get field="Цена"/>
+			</mul>
+		</function>
 	</type>
 
 	<form name="Заказ">
 		<column width="2"/>
 		<column width="50"/>
 		<column width="12"/>
+		<column width="12"/>
+		<column width="12"/>
 
 		<row/>
 		<row indent="1" cols="2">
-			<button name="Записать" text="Записать и закрыть"/>
+			<button name="Отправить" text="Отправить заказ"/>
 		</row>
-		
-		<row/>
-		<row indent="1" text="Дата"/>
-		<cell bind="Дата"/>
 
-		<bar/>
-		<bar bind="Строки" indent="1" cols="6">
-			<button name="Строки.add" text="Добавить"/>
-			<label text=" "/>
-			<button name="Строки.remove" text="Удалить"/>
-			<label text=" "/>
-		</bar>
-		<bar/>
+		<row indent="1" text="Заказ" size="26" cols="4" align="center"/>
+		<row indent="1" bind="title" size="20" cols="4" align="center"/>
 		
 		<row/>
-		<cell text="Номенклатура" align="center" border="1" color="009646"/>
-		<cell text="Количество" align="center" border="1" color="009646"/>
+		<row/>
+		<cell text="Номенклатура" align="center" border="1"/>
+		<cell text="Количество" align="center" border="1"/>
+		<cell text="Цена" align="center" border="1"/>
+		<cell text="Сумма" align="center" border="1"/>
 		<nest field="Строки"/>
+		<row/>
+		<cell text="Всего" cols="3" border="1"/>
+		<cell bind="Сумма" align="right" border="1"/>
+	</form>
+
+	<form name="Заказ.Отправлен">
+		<column width="2"/>
+		<column width="50"/>
+		<column width="12"/>
+		<column width="12"/>
+		<column width="12"/>
+
+		<row/>
+		<row indent="1" text="✅ Заказ отправлен" cols="2" bold="1" color="00C000"/>
+
+		<row indent="1" text="Заказ" size="26" cols="4" align="center"/>
+		<row indent="1" bind="title" size="20" cols="4" align="center"/>
+		
+		<row/>
+		<row/>
+		<cell text="Номенклатура" align="center" border="1"/>
+		<cell text="Количество" align="center" border="1"/>
+		<cell text="Цена" align="center" border="1"/>
+		<cell text="Сумма" align="center" border="1"/>
+		<nest field="Строки"/>
+		<row/>
+		<cell text="Всего" cols="3" border="1"/>
+		<cell bind="Сумма" align="right" border="1"/>
 	</form>
 
 	<form name="Заказ-Строка">
-		<!--<line/>-->
 		<row/>
-		<cell bind="Номенклатура" border="1">
-			<edit type="ref" grow="1"/>
-			<tool type="choosing"/>
-		</cell>
-		<cell bind="Количество" border="1">
-			<edit grow="1"/>
-			<tool type="calculator"/>
-		</cell>
+		<cell bind="Номенклатура" border="1"/>
+		<cell bind="Количество" align="right" border="1"/>
+		<cell bind="Цена" align="right" border="1"/>
+		<cell bind="Сумма" align="right" border="1"/>
 	</form>
 </unit>

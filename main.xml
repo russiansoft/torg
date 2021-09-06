@@ -60,5 +60,6 @@
 	
 	<format name="ДеньМесяца" DF="dd.MMM"/>
 	<format name="Дата" DLF="D"/>
+	<format name="Сумма" NFD="2" NZ="0" NG="0"/>
 	
 </unit>

@@ -23,6 +23,23 @@
 		<field.number name="Сумма" precision="2"/>
 		<field.array name="Строки" type="Строка"/>
 
+		<function name="Сумма">
+			<sum>
+				<get value="Строки"/>
+				<get value="Сумма"/>
+			</sum>
+		</function>
+
+		<function name="title">
+			<join>
+				<format>
+					<get field="Сумма"/>
+					<get value="Сумма"/>
+				</format>
+				<get value=" руб."/>
+			</join>
+		</function>
+
 		<constructor>
 			<function name="Пользователь">
 				<account/>
@@ -35,22 +52,27 @@
 				</select>
 			</query>
 		</constructor>
-		
-		<function name="title">
-		</function>
 
-		<function name="Сумма">
-			<get value="5"/>
-		</function>
+		<!--<state name="ОформитьЗаказ">
+			
+		</state>-->
 		
 		<index name="Корзина">
 		</index>
 	</type>
 
-	<type name="Строка">
+	<type name="Строка" report="1">
 		<field.ref name="Номенклатура" type="Номенклатура" title="Номенклатура"/>
 		<field.number name="Количество" title="Количество"/>
 		<field.number name="НовоеКоличество"/>
+		<field.number name="Сумма" precision="2"/>
+
+		<function name="Сумма">
+			<mul>
+				<get field="Номенклатура.Цена"/>
+				<get field="Количество"/>
+			</mul>
+		</function>
 		
 		<constructor>
 			<function name="Количество">
@@ -102,27 +124,31 @@
 				<get field="НовоеКоличество"/>
 			</function>
 		</state>
+		
+		<index name="Корзина-Строка">
+			<key field="owner"/>
+			<key field="Номенклатура"/>
+		</index>
 	</type>
 
 	<form name="Корзина">
 		<column width="2"/>
 		<column width="50"/>
-		<column width="16"/>
-		<column width="20"/>
-
-		<row/>
-		<row indent="1" cols="2">
-			<button name="ОформитьЗаказ" text="Оформить заказ"/>
-		</row>
-
-		<row/>
-		<row indent="1" text="Сумма: 0 руб." bold="1"/>
+		<column width="25"/>
+		<column width="25"/>
 
 		<row/>
 		<row/>
 		<cell text="Номенклатура" align="center" color="009646"/>
 		<cell text="Количество" align="center" color="009646"/>
+		<cell text="Сумма, руб." align="center" color="009646"/>
 		<nest field="Строки"/>
+		<row/>
+		<row indent="2" border="1000" cols="2"/>
+		<row indent="2" size="20" bold="1" italic="1" fill="80d080">
+			<link reference="Заказ" type="create" text="🎁 Оформить заказ"/>
+		</row>
+		<cell bind="Сумма" bold="1" align="right"/>
 	</form>
 
 	<form name="Корзина-Строка">
@@ -137,6 +163,8 @@
 			<!--<tool type="calculator"/>-->
 			<label text=" " grow="1"/>
 			<button name="Плюс" text="+" title="Увеличить"/>
+		</cell>
+		<cell bind="Сумма" align="right">
 		</cell>
 		<!--<cell>
 			<label text="    "/>
