@@ -59,7 +59,7 @@
 		<row/>
 		<row indent="2" text="Версия 0.3" color="808080"/>
 		<row bind="Версия" align="center" fill="ffb100"/>
-		<cell indent="2">
+		<cell indent="1">
 			<link reference="Версия" type="report" text="Новое в версии"/>
 		</cell>
 
