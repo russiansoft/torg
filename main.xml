@@ -3,14 +3,14 @@
 <unit name="main">
 
 	<type name="main" scope="global">
-
-		<field.number name="Сумма" precision="2"/>
-
-		<function name="Сумма">
-		</function>
+		<field.string name="Версия"/>
 
 		<function name="title">
 			<get value="ООО &quot;СВАРОПТТОРГ&quot;"/>
+		</function>
+
+		<function name="Версия">
+			<get value="Версия 0.3.1"/>
 		</function>
 	</type>
 	
@@ -56,6 +56,13 @@
 		<row indent="2">
 			<link reference="account" type="list" text="Пользователи"/>
 		</row>-->
+		<row/>
+		<row indent="2" text="Версия 0.3" color="808080"/>
+		<row bind="Версия" align="center" fill="ffb100"/>
+		<cell indent="2">
+			<link reference="Версия" type="report" text="Новое в версии"/>
+		</cell>
+
 	</form>
 	
 	<format name="ДеньМесяца" DF="dd.MMM"/>
