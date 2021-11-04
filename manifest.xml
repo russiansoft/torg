@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <package name="torg" version="">
 	<include unit="Версия"/>
 	<include unit="Номенклатура"/>
 	<include unit="Корзина"/>
 	<include unit="Заказ"/>
 	<include unit="main"/>
+	<resource file="favicon.svg"/>
 </package>

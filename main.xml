@@ -10,7 +10,7 @@
 		</function>
 
 		<function name="Версия">
-			<get value="Версия 0.3"/>
+			<get value="Версия 0.4.1"/>
 		</function>
 	</type>
 	
