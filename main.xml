@@ -59,7 +59,6 @@
 		<row/>
 		<row/>
 		<row/>
-		<row/>
 		<cell indent="1" bind="Версия" color="808080">
 			<link reference="Версия" type="report"/>
 		</cell>
