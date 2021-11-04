@@ -9,6 +9,9 @@
 		<column width="2"/>
 		<column width="100"/>
 		<row/>
+		<row/><cell text="Версия 0.5 от 04.11.2021" bold="1"/>
+		<row/><cell text="💠 Значок svg."/>
+		<row/>
 		<row/><cell text="Версия 0.4 от 06.09.2021" bold="1"/>
 		<row/><cell text="💠 Сумма в заказе."/>
 		<row/><cell text="💠 Описание версий."/>
