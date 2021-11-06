@@ -90,7 +90,7 @@
 				<if>
 					<greater>
 						<get field="Количество"/>
-						<get value="0"/>
+						<get value="1"/>
 					</greater>
 					<dec>
 						<get field="Количество"/>
@@ -125,6 +125,14 @@
 			</function>
 		</state>
 		
+		<state name="Удалить">
+			<query>
+				<delete from="Покупка">
+					<filter by="id" field="id"/>
+				</delete>
+			</query>
+		</state>
+		
 		<index name="Корзина-Строка">
 			<key field="owner"/>
 			<key field="Номенклатура"/>
@@ -136,6 +144,7 @@
 		<column width="50"/>
 		<column width="25"/>
 		<column width="25"/>
+		<column width="25"/>
 
 		<row/>
 		<row/>
@@ -145,8 +154,8 @@
 		<nest field="Строки"/>
 		<row/>
 		<row indent="2" border="1000" cols="2"/>
-		<row indent="2" size="20" bold="1" italic="1" fill="80d080">
-			<link reference="Заказ" type="create" text="🎁 Оформить заказ"/>
+		<row indent="2" size="20">
+			<link reference="Заказ" type="create" text="Оформить заказ"/>
 		</row>
 		<cell bind="Сумма" bold="1" align="right"/>
 	</form>
@@ -166,9 +175,9 @@
 		</cell>
 		<cell bind="Сумма" align="right">
 		</cell>
-		<!--<cell>
-			<label text="    "/>
-			<button name="Строка.Удалить" text="🗑" title="Удалить"/>
-		</cell>-->
+		<cell>
+			<label text="        "/>
+			<button name="Удалить" text="X" title="Удалить"/>
+		</cell>
 	</form>
 </unit>
