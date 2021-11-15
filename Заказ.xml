@@ -66,6 +66,8 @@
 		<index name="Заказ">
 			<key field="Дата"/>
 		</index>
+		
+		<access.allow role="1Cv77"/>
 	</type>
 
 	<type name="Строка">
@@ -84,6 +86,8 @@
 				<get field="Цена"/>
 			</mul>
 		</function>
+		
+		<access.allow role="1Cv77"/>
 	</type>
 
 	<form name="Заказ">
