@@ -5,9 +5,14 @@
 	<type name="Заказ" title="Заказ" scope="global">
 		<field.string name="Пользователь" title="Пользователь" width="20"/>
 		<field.date name="Дата" width="9" indexing="sort"/>
+		<field.string name="Номер" width="10"/>
 		<field.array name="Строки" type="Строка"/>
 		<field.number name="Сумма" precision="2" width="15" align="right"/>
 		<field.boolean name="ЗаказОтправлен"/>
+		<field.string name="Статус" width="20"/>
+		<field.string name="ТекстСтатуса" variable="1"/>
+
+		<field.string name="Яндекс" variable="1"/>
 		
 		<function name="title">
 			<join>
@@ -18,7 +23,20 @@
 				</format>
 			</join>
 		</function>
-		
+
+		<function name="ТекстСтатуса">
+			<if>
+				<empty>
+					<get field="Статус"/>
+				</empty>
+				<get value="✅ Заказ отправлен"/>
+				<join>
+					<get value="Статус: "/>
+					<get field="Статус"/>
+				</join>
+			</if>
+		</function>
+
 		<function name="Сумма">
 			<sum>
 				<get value="Строки"/>
@@ -26,6 +44,15 @@
 			</sum>
 		</function>
 		
+		<function name="Яндекс">
+			<http>
+				<get value="https://sms.ru"/>
+				<get value="GET"/>
+				<get value="/sms/send?api_id=49682DE7-436D-4D38-25A9-4EE17B86BE21&to=79038122875&msg=hello+world&json=1"/>
+				<null/>
+			</http>
+		</function>
+
 		<state name="constructor">
 			<function name="Пользователь">
 				<account/>
@@ -125,7 +152,7 @@
 		<column width="12"/>
 
 		<row/>
-		<row indent="1" text="✅ Заказ отправлен" cols="2" bold="1" color="00C000"/>
+		<row indent="1" bind="ТекстСтатуса" cols="2" bold="1" size="20" underline="1" color="00A000"/>
 
 		<row indent="1" text="Заказ" size="26" cols="4" align="center"/>
 		<row indent="1" bind="title" size="20" cols="4" align="center"/>
