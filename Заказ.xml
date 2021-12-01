@@ -49,7 +49,6 @@
 	<!--Заказ-->
 	<type name="Заказ" title="Заказ" scope="global">
 		<field.string name="Пользователь" title="Пользователь" width="20"/>
-		<field.ref name="Посетитель" type="Посетитель"/>
 		<field.string name="Фамилия"/>
 		<field.string name="Имя"/>
 		<field.string name="Отчество"/>
@@ -87,35 +86,36 @@
 		
 		<!--Конструктор-->
 		<state name="constructor">
+			<field.ref name="Предыдущий" type="Заказ"/>
 			<function name="Пользователь">
 				<account/>
 			</function>
-			<function name="Посетитель">
-				<seek>
-					<get value="ПосетительПоАдресуЭП"/>
+			<function name="Предыдущий">
+				<last>
+					<get value="ЗаказПользователь"/>
 					<get field="Пользователь"/>
-				</seek>
+				</last>
 			</function>
 			<function name="Фамилия">
-				<get field="Посетитель.Фамилия"/>
+				<get field="Предыдущий.Фамилия"/>
 			</function>
 			<function name="Имя">
-				<get field="Посетитель.Имя"/>
+				<get field="Предыдущий.Имя"/>
 			</function>
 			<function name="Отчество">
-				<get field="Посетитель.Отчество"/>
+				<get field="Предыдущий.Отчество"/>
 			</function>
 			<function name="Телефон">
-				<get field="Посетитель.Телефон"/>
+				<get field="Предыдущий.Телефон"/>
 			</function>
 			<function name="ИНН">
-				<get field="Посетитель.ИНН"/>
+				<get field="Предыдущий.ИНН"/>
 			</function>
 			<function name="КПП">
-				<get field="Посетитель.КПП"/>
+				<get field="Предыдущий.КПП"/>
 			</function>
 			<function name="НаименованиеОрганизации">
-				<get field="Посетитель.НаименованиеОрганизации"/>
+				<get field="Предыдущий.НаименованиеОрганизации"/>
 			</function>
 			<function name="Дата">
 				<today/>
@@ -164,6 +164,10 @@
 		
 		<!--Индекс-->
 		<index name="Заказ">
+			<key field="Дата"/>
+		</index>
+		<index name="ЗаказПользователь">
+			<key field="Пользователь"/>
 			<key field="Дата"/>
 		</index>
 		
