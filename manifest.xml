@@ -4,6 +4,8 @@
 	<include unit="Номенклатура"/>
 	<include unit="Корзина"/>
 	<include unit="Заказ"/>
+	<include unit="ЗаказФорма"/>
+	<include unit="Посетитель"/>
 	<include unit="main"/>
 	<resource file="favicon.svg"/>
 </package>

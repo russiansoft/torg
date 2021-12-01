@@ -55,6 +55,13 @@
 			<link reference="Заказ" type="list" text="Мои заказы"/>
 		</cell>
 		
+		<row/>
+		<row/>
+		<cell text="👀" size="32"/>
+		<cell>
+			<link reference="Посетитель" type="list" text="Посетители"/>
+		</cell>
+		
 		<!--<row/>
 		<row indent="2">
 			<link reference="account" type="list" text="Пользователи"/>
