@@ -7,6 +7,7 @@
 		<field.string name="Наименование" width="30"/>
 		<field.number name="Цена" precision="2" width="10" align="right"/>
 		<field.number name="Остаток" precision="3" width="10" align="right"/>
+		<field.string name="QRCode" variable="1"/>
 		
 		<function name="title">
 			<get field="Наименование"/>
@@ -23,6 +24,13 @@
 			</function>
 		</state>
 		
+		<function name="QRCode">
+			<join>
+				<get value="https://xn--h1acbsggadkcs.xn--p1ai:2019/?id="/>
+				<get field="id"/>
+			</join>
+		</function>
+
 		<state name="ВКорзине">
 			
 		</state>
@@ -57,6 +65,14 @@
 		<row indent="2">
 			<button name="ДобавитьВКорзину" text="Добавить в корзину"/>
 		</row>
+
+		<row/>
+		<row indent="1"/>
+		<cell bind="QRCode">
+			<qrcode/>
+		</cell>
+		<row/>
+
 	</form>
 	
 	<form name="Номенклатура.ВКорзине">
@@ -79,6 +95,14 @@
 		<row indent="2">
 			<link reference="Корзина" type="report" text="🛒 Перейти в корзину"/>
 		</row>
+
+		<row/>
+		<row indent="1"/>
+		<cell bind="QRCode">
+			<qrcode/>
+		</cell>
+		<row/>
+
 	</form>
 	
 </unit>
