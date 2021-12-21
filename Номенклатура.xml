@@ -8,9 +8,15 @@
 		<field.number name="Цена" precision="2" width="10" align="right"/>
 		<field.number name="Остаток" precision="3" width="10" align="right"/>
 		<field.string name="QRCode" variable="1"/>
+		<field.blob name="Изображение"/>
+		<field.blob name="ПросмотрИзображения" variable="1"/>
 		
 		<function name="title">
 			<get field="Наименование"/>
+		</function>
+
+		<function name="ПросмотрИзображения">
+			<get field="Изображение"/>
 		</function>
 
 		<state name="ДобавитьВКорзину">
@@ -72,6 +78,16 @@
 			<qrcode/>
 		</cell>
 		<row/>
+
+		<row indent="1" text="Изображение"/>
+		<cell bind="Изображение" border="1">
+			<edit grow="1"/>
+			<tool type="upload" accept="image/*"/>
+			<tool type="download"/>
+		</cell>
+		<row indent="1" bind="ПросмотрИзображения" cols="2" border="1">
+			<image/>
+		</row>
 
 	</form>
 	
