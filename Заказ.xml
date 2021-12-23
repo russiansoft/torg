@@ -16,7 +16,7 @@
 		</event>
 		<state name="ОтправкаУведомления">
 			<function name="ОтветУведомления">
-				<http>
+				<!-- <http>
 					<get value="https://sms.ru"/>
 					<get value="GET"/>
 					<join>
@@ -38,7 +38,7 @@
 						<get value="&amp;json=1"/>
 					</join>
 					<null/>
-				</http>
+				</http> -->
 			</function>
 			<function name="ОтправленныйСтатус">
 				<get field="owner.Статус"/>
