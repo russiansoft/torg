@@ -8,15 +8,11 @@
 	<role name="1Cv77"/>
 
 	<type name="main" scope="global">
-		<field.string name="ТекущийПользователь"/>
+		<field.object name="Аутентификация" type="Аутентификация"/>
 		<field.string name="Версия"/>
 
 		<function name="title">
 			<get value="ООО &quot;СВАРОПТТОРГ&quot;"/>
-		</function>
-
-		<function name="ТекущийПользователь">
-			<account/>
 		</function>
 
 		<function name="Версия">
@@ -33,13 +29,7 @@
 		<column width="6"/>
 		<column width="60"/>
 
-		<row/>
-		<row indent="1" bind="ТекущийПользователь" align="left" cols="2" color="606080"/>
-		<row/>
-		<cell cols="2">
-			<button command="google" text="Вход"/><label text="  "/>
-			<button command="local" text="Выход"/>
-		</cell>
+		<nest field="Аутентификация"/>
 
 		<row/>
 		<row/>
@@ -92,13 +82,7 @@
 		<column width="6"/>
 		<column width="60"/>
 
-		<row/>
-		<row indent="1" bind="ТекущийПользователь" align="left" cols="2" color="606080"/>
-		<row/>
-		<cell cols="2">
-			<button command="google" text="Вход"/><label text="  "/>
-			<button command="local" text="Выход"/>
-		</cell>
+		<nest field="Аутентификация"/>
 
 		<row/>
 		<row/>
