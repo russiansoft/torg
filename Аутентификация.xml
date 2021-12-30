@@ -26,7 +26,7 @@
 	
 	<form name="Аутентификация">
 		<row/>
-		<row indent="1" bind="ТекущийПользователь" align="left" cols="2" color="606080"/>
+		<row indent="1" text="Вход не выполнен" align="left" cols="2" color="606080"/>
 		<row/>
 		<cell cols="2">
 			<button command="google" text="Вход"/>
