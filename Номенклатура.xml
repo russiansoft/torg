@@ -52,6 +52,9 @@
 		<index name="Номенклатура">
 			<key field="Наименование"/>
 		</index>
+
+		<access.allow role="Администратор"/>
+		<access.read role="Посетитель"/>
 	</type>
 	
 	<form name="Номенклатура">
