@@ -16,6 +16,9 @@
 			<key field="Пользователь"/>
 			<key field="Номенклатура"/>
 		</index>
+
+		<access.allow role="Администратор"/>
+		<access.allow role="Посетитель"/>
 	</type>
 	
 	<type name="Корзина" title="Корзина" scope="global" report="1">
@@ -59,6 +62,9 @@
 		
 		<index name="Корзина">
 		</index>
+
+		<access.allow role="Администратор"/>
+		<access.allow role="Посетитель"/>
 	</type>
 
 	<type name="Строка" report="1">
@@ -137,6 +143,9 @@
 			<key field="owner"/>
 			<key field="Номенклатура"/>
 		</index>
+
+		<access.allow role="Администратор"/>
+		<access.allow role="Посетитель"/>
 	</type>
 
 	<form name="Корзина">

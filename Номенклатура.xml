@@ -7,6 +7,7 @@
 		<field.string name="Наименование" width="30"/>
 		<field.number name="Цена" precision="2" width="10" align="right"/>
 		<field.number name="Остаток" precision="3" width="10" align="right"/>
+		<field.string name="Ссылка" variable="1"/>
 		<field.string name="QRCode" variable="1"/>
 		<field.blob name="Изображение"/>
 		<field.blob name="ПросмотрИзображения" variable="1"/>
@@ -30,11 +31,15 @@
 			</function>
 		</state>
 		
-		<function name="QRCode">
+		<function name="Ссылка">
 			<join>
 				<get value="https://xn--h1acbsggadkcs.xn--p1ai:2019/?id="/>
 				<get field="id"/>
 			</join>
+		</function>
+		
+		<function name="QRCode">
+			<get field="Ссылка"/>
 		</function>
 
 		<state name="ВКорзине">
@@ -52,6 +57,9 @@
 		<index name="Номенклатура">
 			<key field="Наименование"/>
 		</index>
+
+		<access.allow role="Администратор"/>
+		<access.allow role="Посетитель"/>
 	</type>
 	
 	<form name="Номенклатура">
@@ -73,12 +81,15 @@
 		</row>
 
 		<row/>
+		<row indent="1" text="Ссылка"/>
+		<row/>
+		<cell bind="Ссылка" cols="2" wrap="1"/>
 		<row indent="1"/>
 		<cell bind="QRCode">
 			<qrcode/>
 		</cell>
-		<row/>
 
+		<row/>
 		<row indent="1" text="Изображение"/>
 		<cell bind="Изображение" border="1">
 			<edit grow="1"/>
@@ -113,12 +124,24 @@
 		</row>
 
 		<row/>
+		<row indent="1" text="Ссылка"/>
+		<row/>
+		<cell bind="Ссылка" cols="2" wrap="1"/>
 		<row indent="1"/>
 		<cell bind="QRCode">
 			<qrcode/>
 		</cell>
-		<row/>
 
+		<row/>
+		<row indent="1" text="Изображение"/>
+		<cell bind="Изображение" border="1">
+			<edit grow="1"/>
+			<tool type="upload" accept="image/*"/>
+			<tool type="download"/>
+		</cell>
+		<row indent="1" bind="ПросмотрИзображения" cols="2" border="1">
+			<image/>
+		</row>
 	</form>
 	
 </unit>
