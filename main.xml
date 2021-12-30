@@ -3,24 +3,43 @@
 <unit name="main">
 
 	<!--Роли-->
+	<role name="Администратор"/>
+	<role name="Посетитель"/>
 	<role name="1Cv77"/>
 
 	<type name="main" scope="global">
+		<field.string name="ТекущийПользователь"/>
 		<field.string name="Версия"/>
 
 		<function name="title">
 			<get value="ООО &quot;СВАРОПТТОРГ&quot;"/>
 		</function>
 
+		<function name="ТекущийПользователь">
+			<account/>
+		</function>
+
 		<function name="Версия">
 			<get value="Версия 0.8"/>
 		</function>
+
+		<access.allow role="Администратор"/>
+		<access.allow role="Посетитель"/>
 	</type>
 	
-	<form name="main">
+	<!--Главная форма (Администратор)-->
+	<form name="main" role="Администратор">
 		<column width="2"/>
 		<column width="6"/>
 		<column width="60"/>
+
+		<row/>
+		<row indent="1" bind="ТекущийПользователь" align="left" cols="2" color="606080"/>
+		<row/>
+		<cell cols="2">
+			<button command="google" text="Вход"/><label text="  "/>
+			<button command="local" text="Выход"/>
+		</cell>
 
 		<row/>
 		<row/>
@@ -64,6 +83,54 @@
 		<row/>
 		<cell indent="1" bind="Версия" color="808080">
 			<link reference="Версия" type="report"/>
+		</cell>
+	</form>
+	
+	<!--Главная форма (Посетитель)-->
+	<form name="main" role="Посетитель">
+		<column width="2"/>
+		<column width="6"/>
+		<column width="60"/>
+
+		<row/>
+		<row indent="1" bind="ТекущийПользователь" align="left" cols="2" color="606080"/>
+		<row/>
+		<cell cols="2">
+			<button command="google" text="Вход"/><label text="  "/>
+			<button command="local" text="Выход"/>
+		</cell>
+
+		<row/>
+		<row/>
+		<cell text="📚" size="32"/>
+		<cell>
+			<link reference="Номенклатура" type="search" text="Каталог товаров"/>
+		</cell>
+		
+		<row/>
+		<row/>
+		<cell text="🔍" size="32"/>
+		<cell>
+			<link reference="Номенклатура" type="search" text="Найти наименование"/>
+		</cell>
+		
+		<!--<row/>
+		<row indent="2">
+			<link reference="Покупка" type="list" text="Покупки"/>
+		</row>-->
+		
+		<row/>
+		<row/>
+		<cell text="🛒" size="32"/>
+		<cell>
+			<link reference="Корзина" type="report" text="Корзина"/>
+		</cell>
+		
+		<row/>
+		<row/>
+		<cell text="🎁" size="32"/>
+		<cell>
+			<link reference="Заказ" type="list" text="Мои заказы"/>
 		</cell>
 
 	</form>
