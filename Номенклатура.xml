@@ -33,7 +33,7 @@
 		
 		<function name="Ссылка">
 			<join>
-				<get value="https://xn--h1acbsggadkcs.xn--p1ai:2019/?id="/>
+				<get value="https://xn--40-6kcai3c0bf.xn--p1ai/?id="/>
 				<get field="id"/>
 			</join>
 		</function>
