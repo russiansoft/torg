@@ -11,6 +11,7 @@
 		<field.string name="QRCode" variable="1"/>
 		<field.blob name="Изображение"/>
 		<field.blob name="ПросмотрИзображения" variable="1"/>
+		<field.blob name="ИзображениеКуаркода"/>
 		
 		<function name="title">
 			<get field="Наименование"/>
@@ -81,12 +82,17 @@
 		</row>
 
 		<row/>
+		<row indent="1">
+			<button name="Test1" text="Сформировать"/>
+		</row>
+		
+		<row/>
 		<row indent="1" text="Ссылка"/>
 		<row/>
 		<cell bind="Ссылка" cols="2" wrap="1"/>
 		<row indent="1"/>
 		<cell bind="QRCode">
-			<qrcode/>
+			<qrcode render="ИзображениеКуаркода"/>
 		</cell>
 
 		<row/>
@@ -129,7 +135,7 @@
 		<cell bind="Ссылка" cols="2" wrap="1"/>
 		<row indent="1"/>
 		<cell bind="QRCode">
-			<qrcode/>
+			<qrcode render="ИзображениеКуаркода"/>
 		</cell>
 
 		<row/>
