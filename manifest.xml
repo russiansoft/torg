@@ -3,7 +3,7 @@
 	<include unit="Аутентификация"/>
 	<include unit="Версия"/>
 	<include unit="Номенклатура"/>
-	<resource file="Номенклатура.js"/>
+	<script file="Номенклатура.js"/>
 	<include unit="Корзина"/>
 	<include unit="Заказ"/>
 	<include unit="ЗаказФорма"/>

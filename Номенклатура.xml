@@ -82,18 +82,17 @@
 		</row>
 
 		<row/>
-		<row indent="1">
-			<button name="Test1" text="Сформировать"/>
-		</row>
-		
-		<row/>
 		<row indent="1" text="Ссылка"/>
 		<row/>
 		<cell bind="Ссылка" cols="2" wrap="1"/>
-		<row indent="1"/>
-		<cell bind="QRCode">
-			<qrcode render="ИзображениеКуаркода"/>
+		<row indent="0"/>
+		<cell bind="QRCode" cols="2">
+			<qrcode/>
+			<button text="Сформировать" click="Test1"/>
 		</cell>
+		<row indent="1" bind="ИзображениеКуаркода" cols="2" border="1" name="ИзображениеКуаркода">
+			<image/>
+		</row>
 
 		<row/>
 		<row indent="1" text="Изображение"/>
@@ -135,7 +134,7 @@
 		<cell bind="Ссылка" cols="2" wrap="1"/>
 		<row indent="1"/>
 		<cell bind="QRCode">
-			<qrcode render="ИзображениеКуаркода"/>
+			<qrcode/>
 		</cell>
 
 		<row/>
