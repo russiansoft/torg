@@ -29,22 +29,26 @@
 		<column width="2"/>
 		<column width="30"/>
 		<column width="2"/>
+		<column width="2"/>
 		
 		<bar/>
-		<bar indent="1" cols="2">
+		<bar indent="1" cols="5">
 			<button name="Print" text="🖨 Печать" title="Открыть печатную форму"/><label text=" "/>
 		</bar>
 		<bar/>
 		
 		<row cols="5" border="1101"/>
+		
 		<row border="0001"/>
 		<cell bind="ИзображениеКуаркода" cols="1" rows="4">
 			<image/>
-		</cell>
+		</cell> 
 		<cell/>
 		<cell text="СВАРОПТТОРГ" align="center"/><cell border="0100"/>
-		<row border="0001"/><cell/><cell/>
+		
+		<row border="0001" cols="3"/>
 		<cell bind="Наименование"  align="center"/><cell border="0100"/>
+		
 		<row cols="5" border="0101"/>
 		<row cols="5" border="0101"/>
 		<row cols="5" border="0111"/>

@@ -71,8 +71,8 @@
 		<bar/>
 		<bar/>
 		<bar indent="1" cols="2">
-			<!--<button name="Этикетка" text="Этикетка" title="Сформировать печатную форму этикетки"/>-->
-			<link reference="Этикетка" type="report" text="Этикетка"/>
+			<!-- <button name="Этикетка" text="Этикетка" title="Сформировать печатную форму этикетки" click="ПечатьЭтикетки"/> -->
+			<link reference="Этикетка" type="print" text="Этикетка"/>
 		</bar>
 		
 		<row/>
