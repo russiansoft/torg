@@ -5,6 +5,7 @@
 	<type name="Этикетка" title="Этикетка" scope="global" report="1">
 		<field.ref name="Номенклатура" type="Номенклатура"/>
 		<field.string name="Наименование"/>
+		<field.string name="Код"/>
 		<field.blob name="ИзображениеКуаркода"/>
 		
 		<constructor>
@@ -13,6 +14,9 @@
 			</function>
 			<function name="Наименование">
 				<get field="Номенклатура.Наименование"/>
+			</function>
+			<function name="Код">
+				<get field="Номенклатура.Код"/>
 			</function>
 			<function name="ИзображениеКуаркода">
 				<get field="Номенклатура.ИзображениеКуаркода"/>
@@ -50,7 +54,8 @@
 		<cell bind="Наименование"  align="center"/><cell border="0100"/>
 		
 		<row cols="5" border="0101"/>
-		<row cols="5" border="0101"/>
+		<row border="0001" cols="3"/>
+		<cell bind="Код" font="EanGnivc" size="22" align="center"/><cell border="0100"/>
 		<row cols="5" border="0111"/>
 	</form>
 </unit>
