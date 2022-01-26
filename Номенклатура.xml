@@ -68,6 +68,13 @@
 		<column width="20"/>
 		<column width="30"/>
 		
+		<bar/>
+		<bar/>
+		<bar indent="1" cols="2">
+			<!--<button name="Этикетка" text="Этикетка" title="Сформировать печатную форму этикетки"/>-->
+			<link reference="Этикетка" type="report" text="Этикетка"/>
+		</bar>
+		
 		<row/>
 		<row indent="1" text="Наименование"/>
 		<cell bind="Наименование" bold="1" wrap="1"/>
