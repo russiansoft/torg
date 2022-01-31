@@ -9,9 +9,15 @@
 		<field.number name="Остаток" precision="3" width="10" align="right"/>
 		<field.string name="Ссылка" variable="1"/>
 		<field.string name="QRCode" variable="1"/>
+		<field.blob name="ИзображениеQRCode" variable="1"/>
 		<field.blob name="Изображение"/>
 		<field.blob name="ПросмотрИзображения" variable="1"/>
+		<field.string name="Тест"/>
 		
+		<function name="Тест">
+			<get value="Тестовая строка"/>
+		</function>
+
 		<function name="title">
 			<get field="Наименование"/>
 		</function>
@@ -67,6 +73,12 @@
 		<column width="20"/>
 		<column width="30"/>
 		
+		<bar/>
+		<bar/>
+		<bar indent="1" cols="2">
+			<button name="Этикетка" text="Этикетка" title="Сформировать печатную форму этикетки" click="ПечатьЭтикетки"/>
+		</bar>
+		
 		<row/>
 		<row indent="1" text="Наименование"/>
 		<cell bind="Наименование" bold="1" wrap="1"/>
@@ -84,10 +96,14 @@
 		<row indent="1" text="Ссылка"/>
 		<row/>
 		<cell bind="Ссылка" cols="2" wrap="1"/>
-		<row indent="1"/>
-		<cell bind="QRCode">
+		<row indent="0"/>
+		<cell bind="QRCode" cols="2">
 			<qrcode/>
+			<!-- <button text="Сформировать" click="Test1"/> -->
 		</cell>
+		<row indent="1" bind="ИзображениеQRCode" name="ИзображениеQRCode">
+			<!-- <image/> -->
+		</row>
 
 		<row/>
 		<row indent="1" text="Изображение"/>

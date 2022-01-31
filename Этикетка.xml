@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<unit name="Этикетка">
+	
+	<type name="Этикетка" title="Этикетка" scope="global" report="1">
+		<field.ref name="Номенклатура" type="Номенклатура"/>
+		<field.string name="Наименование"/>
+		<field.string name="Код"/>
+		<field.blob name="ИзображениеQRCode"/>
+		
+		<constructor>
+			<function name="Номенклатура">
+				<get field="parent"/>
+			</function>
+			<function name="Наименование">
+				<get field="Номенклатура.Наименование"/>
+			</function>
+			<function name="Код">
+				<get field="Номенклатура.Код"/>
+			</function>
+			<function name="ИзображениеQRCode">
+				<get field="Номенклатура.ИзображениеQRCode"/>
+			</function>
+		</constructor>
+		
+		
+		<access.allow role="Администратор"/>
+	</type>
+	
+	<form name="Этикетка">
+		<column width="2"/>
+		<column width="10"/>
+		<column width="2"/>
+		<column width="20"/>
+		<column width="10"/>
+		
+		<bar/>
+		<bar indent="1" cols="5">
+			<button name="Print" text="🖨 Печать" title="Открыть печатную форму"/><label text=" "/>
+		</bar>
+		<bar/>
+		
+		<!--Верхня рамка-->
+		<row cols="5" border="1000"/>
+		
+		<!--Куаркод и наименование-->
+		<row border=""/>
+		<cell bind="ИзображениеQRCode" cols="1" rows="4">
+			<image/>
+		</cell> 
+		<cell/>
+		<cell bind="Наименование" bold="1" wrap="1" cols="2" rows="2"/>
+		<cell border=""/>
+		
+		<!--Второй ряд наименования-->
+		<row/>
+		
+		<!--Организация и штрихкод-->
+		<row border="" cols="3"/>
+		<cell text="СВАРОПТТОРГ" size="7" align="left" vertical="bottom"/>
+		<cell bind="Код" font="EanGnivc" size="16" align="right" rows="3"/>
+		<cell border=""/>
+		
+		<!--Нижняя строка куаркода-->
+		<row cols="3" border=""/>
+		<cell text="сварка40.рф" size="6" align="left" vertical="top"/>
+		
+		<!--<row border="" cols="3"/>-->
+		<!--<cell/><cell border=""/>-->
+		
+		<!--Нижняя рамка-->
+		<row/>
+		<row cols="5" border="1000"/>
+	</form>
+</unit>
