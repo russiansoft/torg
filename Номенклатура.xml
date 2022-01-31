@@ -9,10 +9,15 @@
 		<field.number name="Остаток" precision="3" width="10" align="right"/>
 		<field.string name="Ссылка" variable="1"/>
 		<field.string name="QRCode" variable="1"/>
+		<field.blob name="ИзображениеQRCode" variable="1"/>
 		<field.blob name="Изображение"/>
 		<field.blob name="ПросмотрИзображения" variable="1"/>
-		<field.blob name="ИзображениеКуаркода"/>
+		<field.string name="Тест"/>
 		
+		<function name="Тест">
+			<get value="Тестовая строка"/>
+		</function>
+
 		<function name="title">
 			<get field="Наименование"/>
 		</function>
@@ -71,8 +76,7 @@
 		<bar/>
 		<bar/>
 		<bar indent="1" cols="2">
-			<!-- <button name="Этикетка" text="Этикетка" title="Сформировать печатную форму этикетки" click="ПечатьЭтикетки"/> -->
-			<link reference="Этикетка" type="print" text="Этикетка"/>
+			<button name="Этикетка" text="Этикетка" title="Сформировать печатную форму этикетки" click="ПечатьЭтикетки"/>
 		</bar>
 		
 		<row/>
@@ -95,10 +99,10 @@
 		<row indent="0"/>
 		<cell bind="QRCode" cols="2">
 			<qrcode/>
-			<button text="Сформировать" click="Test1"/>
+			<!-- <button text="Сформировать" click="Test1"/> -->
 		</cell>
-		<row indent="1" bind="ИзображениеКуаркода" cols="2" border="1" name="ИзображениеКуаркода">
-			<image/>
+		<row indent="1" bind="ИзображениеQRCode" name="ИзображениеQRCode">
+			<!-- <image/> -->
 		</row>
 
 		<row/>

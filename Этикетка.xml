@@ -6,7 +6,7 @@
 		<field.ref name="Номенклатура" type="Номенклатура"/>
 		<field.string name="Наименование"/>
 		<field.string name="Код"/>
-		<field.blob name="ИзображениеКуаркода"/>
+		<field.blob name="ИзображениеQRCode"/>
 		
 		<constructor>
 			<function name="Номенклатура">
@@ -18,8 +18,8 @@
 			<function name="Код">
 				<get field="Номенклатура.Код"/>
 			</function>
-			<function name="ИзображениеКуаркода">
-				<get field="Номенклатура.ИзображениеКуаркода"/>
+			<function name="ИзображениеQRCode">
+				<get field="Номенклатура.ИзображениеQRCode"/>
 			</function>
 		</constructor>
 		
@@ -45,7 +45,7 @@
 		
 		<!--Куаркод и наименование-->
 		<row border=""/>
-		<cell bind="ИзображениеКуаркода" cols="1" rows="4">
+		<cell bind="ИзображениеQRCode" cols="1" rows="4">
 			<image/>
 		</cell> 
 		<cell/>
