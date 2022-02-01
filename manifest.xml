@@ -2,9 +2,11 @@
 <package name="torg" version="">
 	<include unit="Аутентификация"/>
 	<include unit="Версия"/>
+	<include unit="ВыборНоменклатуры"/>
 	<include unit="Номенклатура"/>
 	<script file="Номенклатура.js"/>
 	<include unit="Этикетка"/>
+	<include unit="Покупка"/>
 	<include unit="Корзина"/>
 	<include unit="Заказ"/>
 	<include unit="ЗаказФорма"/>

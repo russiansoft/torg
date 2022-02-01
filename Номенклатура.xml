@@ -12,12 +12,8 @@
 		<field.blob name="ИзображениеQRCode" variable="1"/>
 		<field.blob name="Изображение"/>
 		<field.blob name="ПросмотрИзображения" variable="1"/>
-		<field.string name="Тест"/>
+		<field.object name="Выбор" type="ВыборНоменклатуры" variable="1"/>
 		
-		<function name="Тест">
-			<get value="Тестовая строка"/>
-		</function>
-
 		<function name="title">
 			<get field="Наименование"/>
 		</function>
@@ -26,17 +22,6 @@
 			<get field="Изображение"/>
 		</function>
 
-		<state name="ДобавитьВКорзину">
-			<query>
-				<insert into="Покупка">
-					<put field="id" in="Номенклатура"/>
-				</insert>
-			</query>
-			<function name="title">
-				<get value="В корзине"/>
-			</function>
-		</state>
-		
 		<function name="Ссылка">
 			<join>
 				<get value="https://xn--40-6kcai3c0bf.xn--p1ai/?id="/>
@@ -48,18 +33,6 @@
 			<get field="Ссылка"/>
 		</function>
 
-		<state name="ВКорзине">
-			
-		</state>
-
-		<function name="ВКорзине">
-			<seek>
-				<get value="Покупка"/>
-				<account/>
-				<get field="id"/>
-			</seek>
-		</function>
-		
 		<index name="Номенклатура">
 			<key field="Наименование"/>
 		</index>
@@ -87,10 +60,9 @@
 		<row indent="1" text="Цена"/>
 		<cell bind="Цена"/>
 
-		<row/>
-		<row indent="2">
-			<button name="ДобавитьВКорзину" text="Добавить в корзину"/>
-		</row>
+
+		<nest field="Выбор"/>
+
 
 		<row/>
 		<row indent="1" text="Ссылка"/>
@@ -116,48 +88,6 @@
 			<image/>
 		</row>
 
-	</form>
-	
-	<form name="Номенклатура.ВКорзине">
-		<column width="2"/>
-		<column width="20"/>
-		<column width="30"/>
-		
-		<row/>
-		<row indent="1" text="Наименование"/>
-		<cell bind="Наименование" bold="1" wrap="1"/>
-	
-		<row/>
-		<row indent="1" text="Цена"/>
-		<cell bind="Цена"/>
-
-		<row/>
-		<row indent="2" text="✅ В корзине" bold="1" color="00C000"/>
-		
-		<row/>
-		<row indent="2">
-			<link reference="Корзина" type="report" text="🛒 Перейти в корзину"/>
-		</row>
-
-		<row/>
-		<row indent="1" text="Ссылка"/>
-		<row/>
-		<cell bind="Ссылка" cols="2" wrap="1"/>
-		<row indent="1"/>
-		<cell bind="QRCode">
-			<qrcode/>
-		</cell>
-
-		<row/>
-		<row indent="1" text="Изображение"/>
-		<cell bind="Изображение" border="1">
-			<edit grow="1"/>
-			<tool type="upload" accept="image/*"/>
-			<tool type="download"/>
-		</cell>
-		<row indent="1" bind="ПросмотрИзображения" cols="2" border="1">
-			<image/>
-		</row>
 	</form>
 	
 </unit>

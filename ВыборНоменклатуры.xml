@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<unit name="ВыборНоменклатуры">
+
+	<type name="ВыборНоменклатуры" scope="global">
+
+		<state name="ДобавитьВКорзину">
+			<query>
+				<insert into="Покупка">
+					<put field="owner" in="Номенклатура"/> <!--as-->
+				</insert>
+			</query>
+		</state>
+		
+		<state name="ВКорзине">
+			<function name="title">
+				<get value="В корзине"/>
+			</function>
+		</state>
+
+		<function name="ВКорзине">
+			<seek>
+				<get value="Покупка"/>
+				<account/>
+				<get field="owner"/>
+			</seek>
+		</function>
+		
+		<access.allow role="Администратор"/>
+		<access.allow role="Посетитель"/>
+	</type>
+
+	<form name="ВыборНоменклатуры">
+		<row/>
+		<row indent="2">
+			<button name="ДобавитьВКорзину" text="Добавить в корзину"/>
+		</row>
+	</form>
+
+	<form name="ВыборНоменклатуры.ВКорзине">
+		<row/>
+		<row indent="2" text="✅ В корзине" bold="1" color="00C000"/>
+
+		<row/>
+		<row indent="2">
+			<link reference="Корзина" type="report" text="🛒 Перейти в корзину"/>
+		</row>
+	</form>
+</unit>

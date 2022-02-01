@@ -2,25 +2,6 @@
 
 <unit name="Корзина">
 	
-	<type name="Покупка" scope="global">
-		<field.ref name="Номенклатура" type="Номенклатура" title="Номенклатура" width="30"/>
-		<field.string name="Пользователь" title="Пользователь" width="20"/>
-		
-		<constructor>
-			<function name="Пользователь">
-				<account/>
-			</function>
-		</constructor>
-		
-		<index name="Покупка">
-			<key field="Пользователь"/>
-			<key field="Номенклатура"/>
-		</index>
-
-		<access.allow role="Администратор"/>
-		<access.allow role="Посетитель"/>
-	</type>
-	
 	<type name="Корзина" title="Корзина" scope="global" report="1">
 		<field.string name="Пользователь"/>
 		<field.number name="Сумма" precision="2"/>
