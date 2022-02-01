@@ -41,12 +41,47 @@
 		<access.allow role="Посетитель"/>
 	</type>
 	
+	<form name="Номенклатура" role="Посетитель">
+		<column width="2"/>
+		<column width="20"/>
+		<column width="30"/>
+
+		<row/>
+		<row indent="1" text="Наименование"/>
+		<cell bind="Наименование" bold="1" wrap="1"/>
+	
+		<row/>
+		<row indent="1" text="Цена"/>
+		<cell bind="Цена"/>
+
+		<nest field="Выбор"/>
+
+		<row/>
+		<row indent="1" bind="ПросмотрИзображения" cols="2">
+			<image/>
+		</row>
+
+		<row/>
+		<row indent="1" bind="QRCode">
+			<qrcode/>
+		</row>
+		<cell bind="Ссылка" wrap="1">
+			<label vertical="stretch"/>
+		</cell>
+		<row bind="ИзображениеQRCode" name="ИзображениеQRCode"/>
+
+		<row/>
+		<row/>
+		<row/>
+		<row/>
+		<row/>
+	</form>
+
 	<form name="Номенклатура">
 		<column width="2"/>
 		<column width="20"/>
 		<column width="30"/>
-		
-		<bar/>
+
 		<bar/>
 		<bar indent="1" cols="2">
 			<button name="Этикетка" text="Этикетка" title="Сформировать печатную форму этикетки" click="ПечатьЭтикетки"/>
@@ -57,25 +92,14 @@
 		<cell bind="Наименование" bold="1" wrap="1"/>
 	
 		<row/>
+		<row indent="1" text="Код"/>
+		<cell bind="Код"/>
+	
+		<row/>
 		<row indent="1" text="Цена"/>
 		<cell bind="Цена"/>
 
-
 		<nest field="Выбор"/>
-
-
-		<row/>
-		<row indent="1" text="Ссылка"/>
-		<row/>
-		<cell bind="Ссылка" cols="2" wrap="1"/>
-		<row indent="0"/>
-		<cell bind="QRCode" cols="2">
-			<qrcode/>
-			<!-- <button text="Сформировать" click="Test1"/> -->
-		</cell>
-		<row indent="1" bind="ИзображениеQRCode" name="ИзображениеQRCode">
-			<!-- <image/> -->
-		</row>
 
 		<row/>
 		<row indent="1" text="Изображение"/>
@@ -84,10 +108,26 @@
 			<tool type="upload" accept="image/*"/>
 			<tool type="download"/>
 		</cell>
+
+		<row/>
 		<row indent="1" bind="ПросмотрИзображения" cols="2" border="1">
 			<image/>
 		</row>
 
+		<row/>
+		<row indent="1" bind="QRCode">
+			<qrcode/>
+		</row>
+		<cell bind="Ссылка" wrap="1">
+			<label vertical="stretch"/>
+		</cell>
+		<row bind="ИзображениеQRCode" name="ИзображениеQRCode"/>
+
+		<row/>
+		<row/>
+		<row/>
+		<row/>
+		<row/>
+
 	</form>
-	
 </unit>

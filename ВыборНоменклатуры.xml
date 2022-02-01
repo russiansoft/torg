@@ -32,18 +32,18 @@
 
 	<form name="ВыборНоменклатуры">
 		<row/>
-		<row indent="2">
+		<row indent="1" text="Купить"/>
+		<cell>
 			<button name="ДобавитьВКорзину" text="Добавить в корзину"/>
-		</row>
+		</cell>
+
 	</form>
 
 	<form name="ВыборНоменклатуры.ВКорзине">
 		<row/>
-		<row indent="2" text="✅ В корзине" bold="1" color="00C000"/>
-
-		<row/>
-		<row indent="2">
+		<row indent="1" text="В корзине"/>
+		<cell bold="1" color="00C000">
 			<link reference="Корзина" type="report" text="🛒 Перейти в корзину"/>
-		</row>
+		</cell>
 	</form>
 </unit>
