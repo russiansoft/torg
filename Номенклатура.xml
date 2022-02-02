@@ -63,12 +63,15 @@
 		</row>
 
 		<row/>
+		<row indent="1" text="Описание"/>
+		<row/>
+		<row indent="1" bind="Описание" cols="2" wrap="1">
+		</row>
+
+		<row/>
 		<row indent="1" bind="QRCode">
 			<qrcode/>
 		</row>
-		<cell bind="Ссылка" wrap="1">
-			<label vertical="stretch"/>
-		</cell>
 		<row bind="ИзображениеQRCode" name="ИзображениеQRCode"/>
 
 		<row/>
