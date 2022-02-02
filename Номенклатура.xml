@@ -13,6 +13,7 @@
 		<field.blob name="Изображение"/>
 		<field.blob name="ПросмотрИзображения" variable="1"/>
 		<field.object name="Выбор" type="ВыборНоменклатуры" variable="1"/>
+		<field.string name="Описание"/>
 		
 		<function name="title">
 			<get field="Наименование"/>
@@ -103,15 +104,22 @@
 
 		<row/>
 		<row indent="1" text="Изображение"/>
-		<cell bind="Изображение" border="1">
+		<cell bind="Изображение" outline="2">
 			<edit grow="1"/>
 			<tool type="upload" accept="image/*"/>
 			<tool type="download"/>
 		</cell>
 
 		<row/>
-		<row indent="1" bind="ПросмотрИзображения" cols="2" border="1">
+		<row indent="1" bind="ПросмотрИзображения" cols="2">
 			<image/>
+		</row>
+
+		<row/>
+		<row indent="1" text="Описание"/>
+		<row/>
+		<row indent="1" bind="Описание" cols="2" outline="2">
+			<edit type="area" grow="1" vertical="9"/>
 		</row>
 
 		<row/>
