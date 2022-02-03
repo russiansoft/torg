@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package name="torg" version="">
+<package name="torg" version="" main="main">
 	<include unit="Аутентификация"/>
 	<include unit="Версия"/>
 	<include unit="ВыборНоменклатуры"/>
