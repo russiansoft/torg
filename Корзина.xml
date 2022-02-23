@@ -51,7 +51,6 @@
 	<type name="Строка" report="1">
 		<field.ref name="Номенклатура" type="Номенклатура" title="Номенклатура"/>
 		<field.number name="Количество" title="Количество"/>
-		<field.number name="НовоеКоличество"/>
 		<field.number name="Сумма" precision="2"/>
 
 		<function name="Сумма">
@@ -66,52 +65,7 @@
 				<get value="1"/>
 			</function>
 		</constructor>
-		
-		<state name="Минус">
-			<query>
-				<update into="Покупка">
-					
-				</update>
-			</query>
-			<function name="НовоеКоличество">
-				<if>
-					<greater>
-						<get field="Количество"/>
-						<get value="1"/>
-					</greater>
-					<dec>
-						<get field="Количество"/>
-					</dec>
-					<get field="Количество"/>
-				</if>
-			</function>
-			<function name="УстановкаНовогоКоличества">
-				<true/>
-			</function>
-		</state>
-		
-		<state name="Плюс">
-			<query>
-				<update into="Покупка">
-					
-				</update>
-			</query>
-			<function name="НовоеКоличество">
-				<inc>
-					<get field="Количество"/>
-				</inc>
-			</function>
-			<function name="УстановкаНовогоКоличества">
-				<true/>
-			</function>
-		</state>
-		
-		<state name="УстановкаНовогоКоличества">
-			<function name="Количество">
-				<get field="НовоеКоличество"/>
-			</function>
-		</state>
-		
+
 		<state name="Удалить">
 			<query>
 				<delete from="Покупка">
