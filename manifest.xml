@@ -8,6 +8,7 @@
 	<include unit="Этикетка"/>
 	<include unit="Покупка"/>
 	<include unit="Корзина"/>
+	<script file="Корзина.js"/>
 	<include unit="Заказ"/>
 	<include unit="ЗаказФорма"/>
 	<include unit="Инвентаризация"/>

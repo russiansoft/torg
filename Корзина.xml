@@ -129,12 +129,12 @@
 		<access.allow role="Посетитель"/>
 	</type>
 
-	<form name="Корзина">
+	<form name="Корзина" role="Посетитель">
 		<column width="2"/>
 		<column width="50"/>
-		<column width="25"/>
-		<column width="25"/>
-		<column width="25"/>
+		<column width="15"/>
+		<column width="15"/>
+		<column width="10"/>
 
 		<row/>
 		<row/>
@@ -144,10 +144,39 @@
 		<nest field="Строки"/>
 		<row/>
 		<row indent="2" border="1000" cols="2"/>
-		<row indent="2" size="20">
-			<link reference="Заказ" type="create" text="Оформить заказ"/>
+		<row indent="1" cols="2" size="20">
+			<label grow="1"/>
+			<link reference="Заказ" type="create" text="Оформить заказ   🡆"/>
 		</row>
 		<cell bind="Сумма" bold="1" align="right"/>
+	</form>
+
+	<form name="Корзина">
+		<column width="2"/>
+		<column width="50"/>
+		<column width="15"/>
+		<column width="15"/>
+		<column width="10"/>
+
+		<row/>
+		<row/>
+		<cell text="Номенклатура" align="center" color="009646"/>
+		<cell text="Количество" align="center" color="009646"/>
+		<cell text="Сумма, руб." align="center" color="009646"/>
+		<nest field="Строки"/>
+		<row/>
+		<row indent="2" border="1000" cols="2"/>
+		<row indent="1" cols="2" size="20">
+			<label grow="1"/>
+			<link reference="Заказ" type="create" text="Оформить заказ   🡆"/>
+		</row>
+		<cell bind="Сумма" bold="1" align="right"/>
+
+		<row/>
+		<row/>
+		<row indent="1">
+			<link reference="Инвентаризация" type="create" text="✦ Инвентаризация"/>
+		</row>
 	</form>
 
 	<form name="Корзина-Строка">
@@ -156,18 +185,18 @@
 		<row/>
 		<cell bind="Номенклатура" wrap="1"/>
 		<cell bind="Количество">
-			<button name="Минус" text="-" title="Уменьшить"/>
+			<button name="Минус_" text="-" title="Уменьшить" click="КорзинаУменьшить"/>
 			<label text="  " grow="1"/>
 			<edit/>
 			<!--<tool type="calculator"/>-->
 			<label text=" " grow="1"/>
-			<button name="Плюс" text="+" title="Увеличить"/>
+			<button name="Плюс_" text="+" title="Увеличить" click="КорзинаУвеличить"/>
 		</cell>
 		<cell bind="Сумма" align="right">
 		</cell>
 		<cell>
 			<label text="        "/>
-			<button name="Удалить" text="X" title="Удалить"/>
+			<button name="Удалить" text="🞪" title="Удалить"/>
 		</cell>
 	</form>
 </unit>
