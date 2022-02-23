@@ -7,6 +7,7 @@
 		<field.string name="Наименование" width="30"/>
 		<field.number name="Цена" precision="2" width="10" align="right"/>
 		<field.number name="Остаток" precision="3" width="10" align="right"/>
+		<field.string name="ЕдиницаИзмерения" title="Ед. изм." width="5"/>
 		<field.string name="Ссылка" variable="1"/>
 		<field.string name="QRCode" variable="1"/>
 		<field.blob name="ИзображениеQRCode" variable="1"/>
@@ -55,6 +56,14 @@
 		<row indent="1" text="Цена"/>
 		<cell bind="Цена"/>
 
+		<row/>
+		<row indent="1" text="Остаток"/>
+		<cell bind="Остаток"/>
+
+		<row/>
+		<row indent="1" text="Единица измерения"/>
+		<cell bind="ЕдиницаИзмерения"/>
+
 		<nest field="Выбор"/>
 
 		<row/>
@@ -102,6 +111,14 @@
 		<row/>
 		<row indent="1" text="Цена"/>
 		<cell bind="Цена"/>
+
+		<row/>
+		<row indent="1" text="Остаток"/>
+		<cell bind="Остаток"/>
+
+		<row/>
+		<row indent="1" text="Единица измерения"/>
+		<cell bind="ЕдиницаИзмерения"/>
 
 		<nest field="Выбор"/>
 
