@@ -7,7 +7,7 @@
 	<role name="Посетитель"/>
 	<role name="1Cv77"/>
 
-	<type name="main" scope="global">
+	<type name="main" scope="global" report="1">
 		<field.object name="Аутентификация" type="Аутентификация"/>
 		<field.string name="Версия"/>
 

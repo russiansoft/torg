@@ -2,7 +2,7 @@
 
 <unit name="Аутентификация">
 
-	<type name="Аутентификация" scope="global">
+	<type name="Аутентификация" scope="global" report="1">
 		<field.string name="ТекущийПользователь"/>
 
 		<function name="ТекущийПользователь">
