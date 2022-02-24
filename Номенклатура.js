@@ -1,4 +1,24 @@
 
+function НоменклатураУвеличить()
+{
+	let id = this.Cell.Bind.split(".")[0];
+	let номенклатура = database.find(id);
+	let покупка = database.find(номенклатура.Выбор.Покупка);
+	database.set(покупка.id, "Количество", покупка.Количество + 1);
+	database.calculate(id);
+	On();
+}
+
+function НоменклатураУменьшить()
+{
+	let id = this.Cell.Bind.split(".")[0];
+	let номенклатура = database.find(id);
+	let покупка = database.find(номенклатура.Выбор.Покупка);
+	database.set(покупка.id, "Количество", покупка.Количество - 1);
+	database.calculate(id);
+	On();
+}
+
 function ПечатьЭтикетки()
 {
 	СохранитьКуаркод.call(this);

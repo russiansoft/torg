@@ -33,6 +33,7 @@
 				<select from="Покупка">
 					<filter by="Пользователь" field="Пользователь"/>
 					<get field="Номенклатура" as="Номенклатура"/>
+					<get field="Количество" as="Количество"/>
 				</select>
 			</query>
 		</constructor>
@@ -60,11 +61,11 @@
 			</mul>
 		</function>
 		
-		<constructor>
+		<!-- <constructor>
 			<function name="Количество">
 				<get value="1"/>
 			</function>
-		</constructor>
+		</constructor> -->
 
 		<state name="Удалить">
 			<query>

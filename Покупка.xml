@@ -5,10 +5,14 @@
 	<type name="Покупка" scope="global">
 		<field.ref name="Номенклатура" type="Номенклатура" title="Номенклатура" width="30"/>
 		<field.string name="Пользователь" title="Пользователь" width="20"/>
+		<field.number name="Количество" title="Количество"/>
 		
 		<constructor>
 			<function name="Пользователь">
 				<account/>
+			</function>
+			<function name="Количество">
+				<get value="1"/>
 			</function>
 		</constructor>
 		

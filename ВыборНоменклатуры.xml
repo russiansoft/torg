@@ -3,6 +3,20 @@
 <unit name="ВыборНоменклатуры">
 
 	<type name="ВыборНоменклатуры" scope="global">
+		<field.ref name="Покупка" type="Покупка"/>
+		<field.number name="Количество"/>
+
+		<function name="Покупка">
+			<seek>
+				<get value="Покупка"/>
+				<account/>
+				<get field="owner"/>
+			</seek>
+		</function>
+
+		<function name="Количество">
+			<get field="Покупка.Количество"/>
+		</function>
 
 		<state name="ДобавитьВКорзину">
 			<query>
@@ -42,6 +56,15 @@
 	<form name="ВыборНоменклатуры.ВКорзине">
 		<row/>
 		<row indent="1" text="В корзине"/>
+		<cell bind="Количество">
+			<button text="-" title="Уменьшить" click="НоменклатураУменьшить"/>
+			<label text=" " grow="1"/>
+			<edit/>
+			<label text=" " grow="1"/>
+			<button text="+" title="Увеличить" click="НоменклатураУвеличить"/>
+		</cell>
+		<row/>
+		<row indent="1"/>
 		<cell bold="1" color="00C000">
 			<link reference="Корзина" type="report" text="🛒 Перейти в корзину"/>
 		</cell>
