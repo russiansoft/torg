@@ -62,6 +62,10 @@
 			<edit/>
 			<label text=" " grow="1"/>
 			<button text="+" title="Увеличить" click="НоменклатураУвеличить"/>
+			<label text=" "/>
+			<button text="Все" title="Все" click="НоменклатураВсе"/>
+			<label text=" "/>
+			<button text="🞪" title="Удалить" click="НоменклатураУдалить"/>
 		</cell>
 		<row/>
 		<row indent="1"/>

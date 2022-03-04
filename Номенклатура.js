@@ -1,21 +1,44 @@
 
+function НоменклатураИзменитьКоличество(номенклатура, количество)
+{
+	let transaction = database.begin();
+	transaction.put(номенклатура.Выбор.Покупка, "Количество", количество);
+	transaction.commit();
+	database.calculate(номенклатура);
+	On();
+}
+
 function НоменклатураУвеличить()
 {
-	let id = this.Cell.Bind.split(".")[0];
-	let номенклатура = database.find(id);
+	let ссылка = this.Cell.Bind.split(".")[0];
+	let номенклатура = database.find(ссылка);
 	let покупка = database.find(номенклатура.Выбор.Покупка);
-	database.set(покупка.id, "Количество", покупка.Количество + 1);
-	database.calculate(id);
-	On();
+	НоменклатураИзменитьКоличество(номенклатура, покупка.Количество + 1);
 }
 
 function НоменклатураУменьшить()
 {
-	let id = this.Cell.Bind.split(".")[0];
-	let номенклатура = database.find(id);
+	let ссылка = this.Cell.Bind.split(".")[0];
+	let номенклатура = database.find(ссылка);
 	let покупка = database.find(номенклатура.Выбор.Покупка);
-	database.set(покупка.id, "Количество", покупка.Количество - 1);
-	database.calculate(id);
+	НоменклатураИзменитьКоличество(номенклатура, покупка.Количество - 1);
+}
+
+function НоменклатураВсе()
+{
+	let ссылка = this.Cell.Bind.split(".")[0];
+	let номенклатура = database.find(ссылка);
+	НоменклатураИзменитьКоличество(номенклатура, номенклатура.Остаток);
+}
+
+function НоменклатураУдалить()
+{
+	let ссылка = this.Cell.Bind.split(".")[0];
+	let номенклатура = database.find(ссылка);
+	let transaction = database.begin();
+	transaction.delete(номенклатура.Выбор.Покупка);
+	transaction.commit();
+	database.calculate(номенклатура);
 	On();
 }
 
