@@ -5,7 +5,6 @@
 	<include unit="ВыборНоменклатуры"/>
 	<include unit="Номенклатура"/>
 	<script file="Номенклатура.js"/>
-	<include unit="Этикетка"/>
 	<include unit="Покупка"/>
 	<include unit="Корзина"/>
 	<script file="Корзина.js"/>
