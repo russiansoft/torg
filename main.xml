@@ -16,7 +16,7 @@
 		</function>
 
 		<function name="Версия">
-			<get value="Версия 0.9"/>
+			<get value="Версия 0.10"/>
 		</function>
 
 		<access.allow role="Администратор"/>
