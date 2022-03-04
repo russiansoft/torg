@@ -38,3 +38,30 @@ function КорзинаУдалить()
 	database.calculate(корзина);
 	On("modify");
 }
+
+function КорзинаПечатьЭтикеток()
+{
+	let корзина = null;
+	for (let image of document.querySelectorAll("img"))
+	{
+		let base64 = image.src;
+		let start = "data:image/png;base64,";
+		if (base64.substr(0, 22) != start)
+			continue;
+		base64 = base64.substr(22);
+		let cell = image.parentNode.Cell;
+		console.log(cell.Bind);
+		console.log(base64);
+		let name = "";
+		let value = "name:" + name + "|" +
+					"type:png|" +
+					"data:" + base64 + "|";
+		let строка = cell.Bind.split(".")[0];
+		//cell.SetValue(value, name, null, true);
+		database.set(строка, "QRCode", value);
+
+		корзина = database.find(строка).owner;
+	}
+	console.log("Корзина: " + корзина);
+	On("link", sheet.id, 'reference="Этикетки" type="print" parent="' + корзина + '"');
+}

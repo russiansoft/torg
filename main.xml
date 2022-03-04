@@ -57,6 +57,13 @@
 			<link reference="Корзина" type="report" text="Корзина"/>
 		</cell>
 		
+		<!--<row/>
+		<row/>
+		<cell text="🏷" size="32"/>
+		<cell>
+			<link reference="Этикетки" type="report" text="Этикетки"/>
+		</cell>-->
+		
 		<row/>
 		<row/>
 		<cell text="🎁" size="32"/>
