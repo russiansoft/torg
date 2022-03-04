@@ -53,7 +53,7 @@
 	<!--Форма отчета-->
 	<form name="Этикетки">
 		<column width="2"/>
-		<column width="10"/>
+		<column width="9"/>
 		<column width="2"/>
 		<column width="13"/>
 		<column width="10"/>
@@ -92,8 +92,8 @@
 		<cell border=""/>
 		
 		<!--Нижняя строка куаркода-->
-		<row cols="3" border=""/>
-		<cell text="сварка40.рф" size="6" align="left" vertical="top"/>
+		<row size="6" cols="3" border=""/>
+		<cell text="сварка40.рф" align="left" vertical="top"/>
 		
 		<!--<row border="" cols="3"/>-->
 		<!--<cell/><cell border=""/>-->
