@@ -39,6 +39,32 @@ function КорзинаУдалить()
 	On("modify");
 }
 
+function КорзинаОчистить()
+{
+	let корзина = null;
+	for (let image of document.querySelectorAll("img"))
+	{
+		let cell = image.parentNode.Cell;
+		let строка = cell.Bind.split(".")[0];
+		корзина = database.find(строка).owner;
+	}
+	console.log("Корзина: " + корзина);
+	let строки = database.select("owner", "owner", корзина);
+	if (!строки.length)
+		return;
+	let transaction = database.begin();
+	for (let id of строки)
+	{
+		let строка = database.find(id);
+		let покупка = database.find(строка.Покупка);
+		console.log("  " + строка + " -> " + покупка);
+		transaction.delete(покупка);
+	}
+	transaction.commit();
+	database.calculate(корзина);
+	On("modify");
+}
+
 function КорзинаПечатьЭтикеток()
 {
 	let корзина = null;

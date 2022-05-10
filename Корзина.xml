@@ -144,6 +144,8 @@
 		<bar/>
 		<bar indent="1" cols="2">
 			<button name="Этикетки" text="Этикетки" title="Сформировать этикетки" click="КорзинаПечатьЭтикеток"/>
+			<label text="  "/>
+			<button name="Очистить" text="Очистить" title="Очистить" click="КорзинаОчистить"/>
 		</bar>
 		
 		<row/>
