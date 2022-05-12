@@ -167,6 +167,8 @@
 			<!--<tool type="calculator"/>-->
 			<label text=" " grow="1"/>
 			<button text="+" title="Увеличить" click="КорзинаУвеличить"/>
+			<label text=" " grow="1"/>
+			<button text="🖉" title="Записать" click="КорзинаЗаписать"/>
 		</cell>
 		<cell bind="Сумма" align="right">
 		</cell>
